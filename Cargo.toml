@@ -1,0 +1,25 @@
+[package]
+name = "conrod-canvas-example"
+version = "0.1.0"
+authors = ["Mizuki HAGIMOTO <hagimotomizuki@gmail.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+conrod_core = "0.63"
+conrod_example_shared = "0.63"
+console_error_panic_hook = "0.1"
+wasm-bindgen = "0.2"
+#wasm-bindgen-test = "0.2"
+
+[dependencies.web-sys]
+version = "0.3"
+features = [
+  "CanvasRenderingContext2d",
+  "ImageBitmap",
+  #"console",
+]
+
+# vim: set ts=2 sw=2 et:
