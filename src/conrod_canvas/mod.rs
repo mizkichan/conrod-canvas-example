@@ -102,23 +102,32 @@ impl Renderer {
                     source_rect,
                 } => {
                     assert!(color.is_none());
+                    assert!(source_rect.is_none());
+                    let sx = 0.0;
+                    let sy = 0.0;
+                    let sw = image_map[&image_id].width() as f64;
+                    let sh = image_map[&image_id].height() as f64;
+                    let dx = rect.left();
+                    let dy = rect.top();
+                    let dw = rect.w();
+                    let dh = rect.h();
+                    self.context.save();
+                    self.context.translate(dx, dy).unwrap();
+                    self.context.scale(1.0, -1.0).unwrap();
                     self.context
                         .draw_image_with_image_bitmap_and_sw_and_sh_and_dx_and_dy_and_dw_and_dh(
                             &image_map[&image_id],
-                            source_rect.map(|r| r.left()).unwrap_or(0.0),
-                            source_rect.map(|r| r.top()).unwrap_or(0.0),
-                            source_rect
-                                .map(|r| r.w())
-                                .unwrap_or(image_map[&image_id].width() as f64),
-                            source_rect
-                                .map(|r| r.h())
-                                .unwrap_or(image_map[&image_id].height() as f64),
-                            rect.left(),
-                            rect.bottom(),
-                            rect.w(),
-                            rect.h(),
+                            sx,
+                            sy,
+                            sw,
+                            sh,
+                            0.0,
+                            0.0,
+                            dw,
+                            dh,
                         )
                         .unwrap();
+                    self.context.restore();
                 }
 
                 PrimitiveKind::Text {

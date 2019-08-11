@@ -15,6 +15,7 @@ export function conrodcanvasexample_releaseMouseUnknown(a: number): void;
 export function conrodcanvasexample_releaseMouseLeft(a: number): void;
 export function conrodcanvasexample_releaseMouseRight(a: number): void;
 export function conrodcanvasexample_releaseMouseMiddle(a: number): void;
+export function __wbindgen_exn_store(a: number): void;
 export function __wbindgen_malloc(a: number): number;
 export function __wbindgen_realloc(a: number, b: number, c: number): number;
 export function __wbindgen_free(a: number, b: number): void;

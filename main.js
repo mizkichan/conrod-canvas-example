@@ -48,12 +48,10 @@ Promise.all([
   once(document, "DOMContentLoaded").then(() =>
     document.querySelector("canvas")
   ),
-  once(img, "load").then(() =>
-    window.createImageBitmap(img, { imageOrientation: "flipY" })
-  )
+  once(img, "load").then(() => window.createImageBitmap(img))
 ]).then(([_, canvas, rust_logo]) => {
   const context = canvas.getContext("2d", {
-    alpha: true
+    alpha: false
   });
   const app = new ConrodCanvasExample(context, rust_logo);
 

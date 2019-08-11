@@ -8,8 +8,8 @@ edition = "2018"
 crate-type = ["cdylib"]
 
 [dependencies]
-conrod_core = "0.63"
-conrod_example_shared = "0.63"
+conrod_core = "0.66"
+conrod_example_shared = "0.66"
 console_error_panic_hook = "0.1"
 wasm-bindgen = "0.2"
 #wasm-bindgen-test = "0.2"
